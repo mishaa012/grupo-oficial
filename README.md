@@ -1,2 +1,0 @@
-# grupo-oficial
-wasaaa

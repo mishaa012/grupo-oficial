@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111827">
+  <title>Hospital PRO V4 | Gestión de Camillas</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <section id="loginScreen" class="auth-screen" aria-label="Inicio de sesión">
+    <div class="auth-intro">
+      <div class="brand brand-large">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none"><path d="M24 6v36M6 24h36" stroke="currentColor" stroke-width="8" stroke-linecap="round"/><circle cx="24" cy="24" r="20" stroke="currentColor" stroke-opacity=".25" stroke-width="2"/></svg>
+        </span>
+        <span><strong>HOSPITAL</strong><small>PRO V4 · CAMILLAS</small></span>
+      </div>
+      <p class="eyebrow">GESTIÓN INTELIGENTE DE EMERGENCIAS</p>
+      <h1>Camillas claras.<br><span>Decisiones rápidas.</span></h1>
+      <p class="intro-copy">Una versión web moderna para controlar la disponibilidad, asignación, limpieza y fallas de las camillas del hospital.</p>
+
+      <div class="intro-points">
+        <article><span class="point-icon">▦</span><div><b>Mapa en tiempo real</b><small>Colores y estados visibles de inmediato.</small></div></article>
+        <article><span class="point-icon">⚡</span><div><b>Acciones rápidas</b><small>Asignar, liberar o cambiar estado en pocos clics.</small></div></article>
+        <article><span class="point-icon">▣</span><div><b>Datos guardados</b><small>La información queda almacenada en este navegador.</small></div></article>
+      </div>
+    </div>
+
+    <div class="auth-card-wrap">
+      <form id="loginForm" class="auth-card" novalidate>
+        <div class="auth-card-heading">
+          <span class="status-dot"></span>
+          <div><p class="eyebrow">ACCESO SEGURO</p><h2>Bienvenido</h2></div>
+        </div>
+        <p class="muted">Ingresa con tu cuenta o usa uno de los accesos de demostración.</p>
+
+        <label class="field-label" for="loginUser">Usuario</label>
+        <div class="input-wrap"><span aria-hidden="true">◉</span><input id="loginUser" autocomplete="username" value="admin" placeholder="Ejemplo: admin"></div>
+        <label class="field-label" for="loginPassword">Contraseña</label>
+        <div class="input-wrap"><span aria-hidden="true">●</span><input id="loginPassword" type="password" autocomplete="current-password" value="1234" placeholder="Tu contraseña"></div>
+
+        <button class="btn btn-primary btn-full" type="submit"><span>Ingresar al sistema</span><span aria-hidden="true">→</span></button>
+        <p id="loginMessage" class="form-message" role="alert"></p>
+
+        <div class="demo-heading"><span></span><small>ACCESOS DE DEMOSTRACIÓN</small><span></span></div>
+        <div class="demo-grid">
+          <button class="demo-role" type="button" data-demo="admin"><span>⌁</span><b>Administrador</b><small>Control total</small></button>
+          <button class="demo-role" type="button" data-demo="medico"><span>✚</span><b>Médico</b><small>Atención clínica</small></button>
+          <button class="demo-role" type="button" data-demo="mantenimiento"><span>⚙</span><b>Mantenimiento</b><small>Estados y fallas</small></button>
+          <button class="demo-role" type="button" data-demo="consulta"><span>◌</span><b>Consulta</b><small>Solo lectura</small></button>
+        </div>
+        <p class="login-note">Clave para todos los usuarios: <b>1234</b></p>
+      </form>
+    </div>
+  </section>
+
+  <div id="appShell" class="app-shell is-hidden">
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-top">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M24 6v36M6 24h36" stroke="currentColor" stroke-width="8" stroke-linecap="round"/><circle cx="24" cy="24" r="20" stroke="currentColor" stroke-opacity=".25" stroke-width="2"/></svg>
+          </span>
+          <span><strong>HOSPITAL</strong><small>PRO V4</small></span>
+        </div>
+        <button id="closeMobileNav" class="icon-btn mobile-only" type="button" aria-label="Cerrar menú">×</button>
+      </div>
+
+      <div class="signed-user">
+        <div id="userAvatar" class="avatar">AD</div>
+        <div><b id="sideUserName">Administrador</b><small id="sideUserRole">Administrador</small></div>
+        <span class="online-badge" title="Sesión activa"></span>
+      </div>
+
+      <nav class="main-nav" aria-label="Navegación principal">
+        <p class="nav-label">PRINCIPAL</p>
+        <button class="nav-item active" type="button" data-view="dashboard"><span>⌂</span>Inicio</button>
+        <button class="nav-item" type="button" data-view="map"><span>▦</span>Mapa de camillas</button>
+        <button class="nav-item" type="button" data-view="beds"><span>▤</span>Estado de camillas</button>
+        <p class="nav-label nav-label-work">GESTIÓN</p>
+        <button class="nav-item" type="button" data-view="patients" data-permission="patients"><span>♙</span>Pacientes</button>
+        <button class="nav-item" type="button" data-view="assignment" data-permission="assign"><span>⇄</span>Asignar / liberar</button>
+        <button class="nav-item" type="button" data-view="status" data-permission="status"><span>⚙</span>Limpieza / falla</button>
+        <button class="nav-item" type="button" data-view="triage" data-permission="triage"><span>✚</span>Triaje</button>
+        <button class="nav-item" type="button" data-view="reports" data-permission="reports"><span>▥</span>Reportes</button>
+        <button class="nav-item" type="button" data-view="settings" data-permission="settings"><span>⚒</span>Herramientas</button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="local-save"><span>●</span><small>Datos guardados localmente</small></div>
+        <button id="logoutButton" class="nav-item logout" type="button"><span>↩</span>Cerrar sesión</button>
+      </div>
+    </aside>
+
+    <section class="workspace">
+      <header class="topbar">
+        <button id="openMobileNav" class="icon-btn mobile-only" type="button" aria-label="Abrir menú">☰</button>
+        <div class="page-title"><p id="pageEyebrow" class="eyebrow">PANEL OPERATIVO</p><h1 id="pageTitle">Centro de control</h1></div>
+        <div class="topbar-actions">
+          <label class="global-search"><span>⌕</span><input id="globalSearch" type="search" placeholder="Buscar camilla o paciente"></label>
+          <button id="notificationButton" class="icon-btn notification-btn" type="button" aria-label="Ver alertas"><span>♧</span><i id="notificationCount">0</i></button>
+          <button id="quickActionsButton" class="btn btn-primary quick-btn" type="button"><span>⚡</span>Acciones rápidas</button>
+        </div>
+      </header>
+      <main id="viewRoot" class="view-root" tabindex="-1"></main>
+    </section>
+  </div>
+
+  <dialog id="appModal" class="app-modal" aria-labelledby="modalTitle">
+    <div class="modal-top"><div><p id="modalEyebrow" class="eyebrow">HOSPITAL PRO V4</p><h2 id="modalTitle">Detalle</h2></div><button class="icon-btn" type="button" data-close-modal aria-label="Cerrar">×</button></div>
+    <div id="modalBody" class="modal-body"></div>
+  </dialog>
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
