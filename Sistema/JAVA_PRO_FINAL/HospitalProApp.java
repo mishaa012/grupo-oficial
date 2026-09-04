@@ -326,7 +326,7 @@ public class HospitalProApp {
         JLabel section = new JLabel("Inicio");
 
         MainFrame() {
-            setTitle("Sistema Hospitalario PRO V3 - Gestión de camillas");
+            setTitle("sistema hospitalario PRO V3 - gestion camas");
             setDefaultCloseOperation(EXIT_ON_CLOSE);
             setMinimumSize(new Dimension(1200,740));
             setExtendedState(MAXIMIZED_BOTH);
